@@ -9,4 +9,6 @@ This project is done by me: Hoang Tran Minh Thuan
 ------------------------------------------------------------*/
 
 
-In this project, It has some bug!
+In this project:
+1. It has some bug!
+2. I dont optimize source code! 
