@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "author": "Alessandro Pucci",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 19.2, "left": -215.96, "attrs": {} },
+    {
+      "type": "wokwi-lcd2004",
+      "id": "lcd1",
+      "top": 25.6,
+      "left": -52,
+      "attrs": { "pins": "i2c" }
+    },
+    { "type": "wokwi-dht22", "id": "dht1", "top": 48.3, "left": -303, "attrs": {} },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 243,
+      "left": -30.8,
+      "rotate": 180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -80.4,
+      "left": -101.8,
+      "attrs": { "color": "red" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:5V", "lcd1:VCC", "red", [ "h0.15", "v28.8", "h115.2", "v-182.4" ] ],
+    [ "lcd1:GND", "esp:GND.2", "black", [ "h-48", "v-9.6" ] ],
+    [ "lcd1:SDA", "esp:25", "green", [ "h-38.4", "v48.2" ] ],
+    [ "lcd1:SCL", "esp:26", "gold", [ "h-28.8", "v48.3" ] ],
+    [ "dht1:VCC", "esp:5V", "red", [ "v0" ] ],
+    [ "dht1:GND", "esp:CMD", "black", [ "v0" ] ],
+    [ "dht1:SDA", "esp:22", "magenta", [ "v38.4", "h172.9", "v-134.4" ] ],
+    [ "ldr1:VCC", "esp:5V", "red", [ "h-182.4" ] ],
+    [ "ldr1:GND", "esp:CMD", "black", [ "h-192", "v0.4" ] ],
+    [ "esp:34", "ldr1:AO", "blue", [ "h-28.65", "v172.8", "h9.6" ] ],
+    [ "led1:C", "esp:GND.2", "green", [ "v0" ] ],
+    [ "led1:A", "esp:13", "red", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
